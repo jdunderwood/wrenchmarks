@@ -1,0 +1,12 @@
+{% block content %}
+	<h2>Customers</h2>
+<a href="">Create new customer</a><p />
+<label for="customer_search">Search:</label>
+<input type="text" id="customer_search" name="search" />
+
+	<ul>
+		{% for customer in object_list %}
+			<li><a href="/cust/{{ customer.id}}">{{ customer.last_name|add:", "|add:customer.first_name}}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

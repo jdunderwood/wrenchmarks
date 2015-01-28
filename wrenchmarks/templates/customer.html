@@ -1,8 +1,0 @@
-{% block content %}
-	<h2>Customers</h2>
-	<ul>
-		{% for customer in object_list %}
-			<li><a href="">{{ customer.last_name|add:", "|add:customer.first_name}}</a></li>
-		{% endfor %}
-	</ul>
-{% endblock %}
