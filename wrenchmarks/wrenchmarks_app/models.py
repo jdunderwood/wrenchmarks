@@ -8,6 +8,9 @@ class Customer(models.Model):
 	phone_number = models.CharField(max_length=12)
 	email = models.EmailField(max_length=254)
 
+	def get_absolute_url(self):
+		return "/cust/%i" % self.id
+
 class Vehicle(models.Model):
 	customer = models.ForeignKey(Customer)
 	vehicle_model = models.CharField(max_length=30)
@@ -17,6 +20,9 @@ class Vehicle(models.Model):
 	plate = models.CharField(max_length=12)
 	VIN = models.CharField(max_length=17)
 	mileage = models.IntegerField()
+
+	def get_absolute_url(self):
+		return "/vehicle/%i" % self.id
 
 class ServiceEvent(models.Model):
 	vehicle = models.ForeignKey(Vehicle)

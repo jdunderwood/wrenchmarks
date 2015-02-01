@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from wrenchmarks_app.views import CustomerList, VehicleList, VehicleDetail
+from wrenchmarks_app.views import *
 
 urlpatterns = patterns('',
     # Examples:
@@ -11,4 +11,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cust/(?P<customer_id>\d+)$', VehicleList.as_view()),
     url(r'^vehicle/(?P<pk>\d+)$', VehicleDetail.as_view()),
+    url(r'^custedit/(?P<pk>\d+)$', CustomerUpdate.as_view()),
+    url(r'^newcust$', CustomerCreate.as_view()),
+    url(r'custdelete/(?P<pk>\d+)$', CustomerDelete.as_view()),
+    url(r'newvehicle/(?P<customer_id>\d+)$', VehicleCreate.as_view()),
 )

@@ -1,11 +1,16 @@
 
 {% block content %}
         <h2>Customer vehicles</h2>
-
+	<a href="/custedit/{{ customer_detail.id}}">Edit Customer</a>
+	<a href="/custdelete/{{ customer_detail.id}}">Delete Customer</a><p />
+	{{customer_detail.first_name}} {{customer_detail.last_name}}<br />
+	{{customer_detail.address}}<br />
+	{{customer_detail.phone_number}}<br />
+	{{customer_detail.email}} <p />
         <ul>
                 {% for vehicle in object_list %}
                         <li><a href="/vehicle/{{ vehicle.id}}">{{ vehicle.vehicle_year|add:" "|add:vehicle.vehicle_make|add:" "|add:vehicle.vehicle_model}}</a></li>
                 {% endfor %}
         </ul>
+	<a href="newvehicle/{{ customer_detail.id}}">Add Vehicle</a>
 {% endblock %}
-
