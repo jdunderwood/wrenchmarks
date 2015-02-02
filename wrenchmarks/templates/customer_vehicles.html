@@ -12,5 +12,5 @@
                         <li><a href="/vehicle/{{ vehicle.id}}">{{ vehicle.vehicle_year|add:" "|add:vehicle.vehicle_make|add:" "|add:vehicle.vehicle_model}}</a></li>
                 {% endfor %}
         </ul>
-	<a href="newvehicle/{{ customer_detail.id}}">Add Vehicle</a>
+	<a href="/newvehicle/{{ customer_detail.id}}">Add Vehicle</a>
 {% endblock %}

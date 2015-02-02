@@ -2,7 +2,12 @@
 {% block content %}
         <h2>Vehicle</h2>
 <a href="/cust/{{ object.customer_id}}">Back to customer</a><p />
-{{ object.vehicle_year|add:" "|add:object.vehicle_make|add:" "|add:object.vehicle_model }}
+<a href="/vehicleedit/{{ object.id}}">Edit vehicle</a> <a href="/vehicledelete/{{ object.id}}">Delete vehicle</a><br />
+{{ object.vehicle_year|add:" "|add:object.vehicle_make|add:" "|add:object.vehicle_model }}<br />
+Colour: {{ object.colour}} <br />
+Plate: {{ object.plate}} <br />
+VIN: {{ object.VIN}} <br />
+Mileage: {{ object.mileage }}<br />
 <ul>
         </ul>
 {% endblock %}

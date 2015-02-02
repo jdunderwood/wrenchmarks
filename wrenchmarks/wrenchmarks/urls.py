@@ -15,4 +15,6 @@ urlpatterns = patterns('',
     url(r'^newcust$', CustomerCreate.as_view()),
     url(r'custdelete/(?P<pk>\d+)$', CustomerDelete.as_view()),
     url(r'newvehicle/(?P<customer_id>\d+)$', VehicleCreate.as_view()),
+    url(r'vehicleedit/(?P<pk>\d+)$', VehicleUpdate.as_view()),
+    url(r'vehicledelete/(?P<pk>\d+)$', VehicleDelete.as_view())
 )

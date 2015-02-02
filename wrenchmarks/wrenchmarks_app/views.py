@@ -50,4 +50,16 @@ class VehicleCreate(CreateView):
 		vehicle = form.save(commit=False)
 		vehicle.customer_id = self.kwargs.get("customer_id", None)
 		vehicle.save()
-		return HttpResponseRedirect(self.get_success_url())
+		return HttpResponseRedirect('/cust/' + self.kwargs.get("customer_id", None))
+
+class VehicleUpdate(UpdateView):
+	model = Vehicle
+	fields = ['vehicle_year', 'vehicle_make', 'vehicle_model', 'colour', 'plate', 'VIN', 'mileage']
+	template_name = 'vehicle_update.html'
+
+class VehicleDelete(DeleteView):
+	model = Vehicle
+	template_name = 'vehicle_delete_confirm.html'
+
+	def get_success_url(self):
+		return '/cust/' + str(Vehicle.objects.get(id=self.kwargs.get("pk", None)).customer_id)
