@@ -7,8 +7,20 @@
 Colour: {{ object.colour}} <br />
 Plate: {{ object.plate}} <br />
 VIN: {{ object.VIN}} <br />
-Mileage: {{ object.mileage }}<br />
+Mileage: {{ object.mileage }}<p />
+<a href="/newservice/{{ object.id}}">Add service</a>
 <ul>
+ {% for service in service_events %}
+                        <li><a href="/service/{{ service.id}}">{{ service.service_description}}</a></li>
+                {% endfor %}
+
+        </ul><p />
+<a href="/newquote/{{ object.id}}">Add quote</a>
+<ul>
+ {% for quote in quotes %}
+                        <li><a href="/quote/{{ quote.id}}">{{ quote.quote_description}}</a></li>
+                {% endfor %}
+
         </ul>
 {% endblock %}
 
