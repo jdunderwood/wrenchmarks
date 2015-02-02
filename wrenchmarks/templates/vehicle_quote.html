@@ -1,0 +1,16 @@
+
+{% block content %}
+        <h2>Quote</h2>
+        <a href="/quoteedit/{{ quote.id}}">Edit Quote</a>
+        <a href="/quotedelete/{{ quote.id}}">Delete Quote</a><br />
+	{{ quote.quote_description}}<br />
+	{{ quote.quote_date}}<br />
+	{{ quote.quote_mileage}}<p />
+Quote Details <br />
+<a href="/newquotedetail/{{ quote.id}}">Add Quote Detail</a><p />
+        <ul>
+                {% for detail in object_list %}
+                        <li><a href="/quotedetail/{{ detail.id}}">{{ detail.quote_detail_description}}</a></li>
+                {% endfor %}
+        </ul>
+{% endblock %}

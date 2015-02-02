@@ -1,0 +1,16 @@
+
+{% block content %}
+        <h2>Service Event</h2>
+        <a href="/serviceedit/{{ service_event.id}}">Edit Service Event</a>
+        <a href="/servicedelete/{{ service_event.id}}">Delete Service Event</a><br />
+	{{ service_event.service_description}}<br />
+	{{ service_event.service_date}}<br />
+	{{ service_event.service_mileage}}<p />
+Service Details <br />
+<a href="/newservicedetail/{{ service_event.id}}">Add Service Detail</a><p />
+        <ul>
+                {% for detail in object_list %}
+                        <li><a href="/servicedetail/{{ detail.id}}">{{ detail.detail_description}}</a></li>
+                {% endfor %}
+        </ul>
+{% endblock %}
