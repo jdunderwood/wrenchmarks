@@ -1,0 +1,17 @@
+{% extends 'bootstrap3.html' %}
+{% load bootstrap3 %}
+{% load url from future %}
+
+{% block bootstrap3_content %}
+    <div class="container">
+        <h1>{% block title %}{% endblock %}</h1>
+
+        <p>
+            <a href="/">home</a>
+        </p>
+
+
+        {% block content %}(no content){% endblock %}
+    </div>
+
+{% endblock %}
