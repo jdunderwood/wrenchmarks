@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'bootstrap3',
+    'bootstrap3_datetime',
     'django_admin_bootstrapped.bootstrap3',
     'django_admin_bootstrapped',
     'django.contrib.admin',
@@ -90,4 +91,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+	"/usr/local/lib/python2.7/dist-packages/bootstrap3_datetime/static/bootstrap3_datetime/css/",
+	"/usr/local/lib/python2.7/dist-packages/bootstrap3_datetime/static/bootstrap3_datetime/js/",)
 STATIC_ROOT = 'wrenchmarks/static'

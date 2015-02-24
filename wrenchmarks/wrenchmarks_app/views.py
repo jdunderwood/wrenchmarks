@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from wrenchmarks_app.forms import CustomerForm
+from wrenchmarks_app.forms import ServiceEventForm, ServiceEventForm2
 from django.views.generic.edit import FormView
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from wrenchmarks_app.models import *
@@ -82,10 +82,11 @@ class ServiceEventList(ListView):
 	def get_queryset(self):
 		return ServiceEventDetail.objects.filter(service_event_id=self.kwargs.get("pk", None))
 
-class ServiceEventCreate(CreateView):
+class ServiceEventCreate(FormView):
 	model = ServiceEvent
 	fields = ['service_date', 'service_description', 'service_mileage']
 	template_name = 'service_event_create.html'
+	form_class = ServiceEventForm2
 
 	def form_valid(self, form):
 		service_event = form.save(commit=False)
@@ -97,6 +98,7 @@ class ServiceEventUpdate(UpdateView):
 	model = ServiceEvent
 	fields = ['service_date', 'service_description', 'service_mileage']
 	template_name = 'service_event_update.html'
+	form_class = ServiceEventForm
 
 class ServiceEventDelete(DeleteView):
 	model = ServiceEvent
